@@ -50,7 +50,7 @@ class AuthController {
       const { newCode } = await this.authService.code( code );
 
       //res.setHeader('Set-Cookie', [cookie]);
-      res.status(200).json({ data: newCode, message: 'logout' });
+      res.status(200).json({ data: newCode, message: 'code' });
     } catch (error) {
       console.log(error);
       next(error);
