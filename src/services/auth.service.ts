@@ -14,7 +14,7 @@ class AuthService {
   public token = tokenModel;
 
 
-  public async signup(userData: CreateUserDto): Promise<User> {
+  public async signup(userData: CreateUserDto): Promise<any> {
     if (isEmpty(userData)) throw new HttpException(400, "You're not userData");
 
     const findUser: User = await this.users.findOne({ email: userData.email });
@@ -29,8 +29,7 @@ class AuthService {
     const gmailService = new GMailService();
     gmailService.sendMail(userData.email, 'Hello', "Hello,<br> Please Click on the link to verify your email.<br><a href="+link+">Click here to verify</a>" );
     const doc = await this.token.create({ _userId: createUserData._id, token: rand });
-
-    return createUserData;
+    return {createUserData, link};
   }
 
   public async login(userData: CreateUserDto): Promise<{ Token }> {

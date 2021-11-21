@@ -28,8 +28,8 @@ export class GMailService {
       port: 465,
       secure: true,
       auth: {
-        user: 'sanartup@gmail.com',
-        pass: 'sanartapp12*34'
+        user: 'mail@gmail.com',
+        pass: 'pass'
       }
     });
   }
