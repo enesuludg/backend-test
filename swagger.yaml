@@ -1,0 +1,140 @@
+openapi: 3.0.0
+info:
+  description: "Nodejs/Express-MongoDB App  with `Docker`"
+  version: "1.0.0"
+  title: "Backend Developer Test"
+  contact:
+    email: "uludgenes@gmail.com"
+host: "localhost:3000"
+basePath: "/"
+tags:
+- name: General
+  description: General API
+paths:
+# [POST] Signup
+  /signup:
+    post:
+      tags:
+      - General
+      summary: Add User
+      parameters:
+      - name: "body"
+        in: "body"
+        description: user Data
+        required: true
+        schema:
+          $ref: '#/definitions/users'
+      responses:
+        201:
+          description: 'Created'
+        400:
+          description: 'Bad Request'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+  # [POST] Login
+  /login:
+    post:
+      tags:
+      - General
+      summary: Add User
+      parameters:
+      - name: body
+        in: body
+        description: user Data
+        required: true
+        schema:
+          $ref: '#/definitions/users'
+      responses:
+        201:
+          description: 'Created'
+        400:
+          description: 'Bad Request'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+# [POST] Logout
+  /logout:
+    post:
+      tags:
+      - General
+      summary: Add User
+      parameters:
+      - name: body
+        in: body
+        description: user Data
+        required: true
+        schema:
+          $ref: '#/definitions/users'
+      responses:
+        201:
+          description: 'Created'
+        400:
+          description: 'Bad Request'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+# [GET] My-profile
+  /my-profile:
+    get:
+      tags:
+      - General
+      summary: Find All Users
+      responses:
+        200:
+          description: 'OK'
+        500:
+          description: 'Server Error'
+# [POST] code
+  /code:
+    post:
+      tags:
+      - General
+      summary: Add User
+      parameters:
+      - name: body
+        in: body
+        description: user Data
+        required: true
+        schema:
+          $ref: '#/definitions/code'
+      responses:
+        201:
+          description: 'Created'
+        400:
+          description: 'Bad Request'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+
+                  
+                  
+# definitions
+definitions:
+  users:
+    type: object
+    required:
+        - email
+        - password
+    properties:
+      email:
+        type: string
+        description: user Email
+      password:
+        type: string
+        description: user Password
+  code:
+    type: object
+    required:
+        - email
+        - password
+    properties:
+      code:
+        type: string
+        description: name surname
+    
+      
