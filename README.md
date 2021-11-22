@@ -12,6 +12,6 @@ post localhost:3000/singup
 response => verify link
 
 # login 
-##!You must click on verify link to login
+## !You must click on verify link to login
 post localhost:3000/login
 {email:email,password:password}
